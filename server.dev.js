@@ -39,6 +39,19 @@ process.env.NODE_ENV = 'development';
 /**
  * start dev server
  */
+function getLocalIPAdress(){
+    var interfaces = require('os').networkInterfaces();
+    for(var devName in interfaces){
+        var iface = interfaces[devName];
+        for(var i=0;i<iface.length;i++){
+            var alias = iface[i];
+            if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){
+                return alias.address;
+            }
+        }
+    }
+}
+
 function startDevServer() {
     app = express();
     core.build()
@@ -55,7 +68,7 @@ function startDevServer() {
              * we need to close existing connections with help of stoppable
              */
             server = stoppable(app.listen(port, function () {
-                console.log('server started at localhost:' + port);
+                console.log(`server started at http://${getLocalIPAdress()}/${post}` );
             }));
         })
         .catch(function (err) {
