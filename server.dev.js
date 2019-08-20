@@ -68,7 +68,7 @@ function startDevServer() {
              * we need to close existing connections with help of stoppable
              */
             server = stoppable(app.listen(port, function () {
-                console.log(`server started at http://${getLocalIPAdress()}/${post}` );
+                console.log(`server started at http://${getLocalIPAdress()}/${port}` );
             }));
         })
         .catch(function (err) {
