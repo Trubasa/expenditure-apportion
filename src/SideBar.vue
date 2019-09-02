@@ -3,14 +3,14 @@
     <v-list dense>
       <v-subheader class="mt-4 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
       <v-list>
-        <v-list-item v-for="item in items2" :key="item.text" >
+        <v-list-item v-for="item in items2" :key="item.text">
           <v-list-item-avatar>
             <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt />
           </v-list-item-avatar>
           <v-list-item-title v-text="item.text"></v-list-item-title>
         </v-list-item>
       </v-list>
-      <v-list-item class="mt-4" >
+      <v-list-item class="mt-4">
         <v-list-item-action>
           <v-icon color="grey darken-1">mdi-plus-circle-outline</v-icon>
         </v-list-item-action>
